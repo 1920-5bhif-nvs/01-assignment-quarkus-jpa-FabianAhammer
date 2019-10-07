@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  database:
+    container_name: posgresdb
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: passme
+      POSTGRES_USER: user
+      POSTGRES_DB: user
+      PG_DATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - lib:/var/lib/postgresql/data
+    ports:
+     - 5432:5432
+  
+volumes:
+  lib:
+    name: librarydatasource_data
